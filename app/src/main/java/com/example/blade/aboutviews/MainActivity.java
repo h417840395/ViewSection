@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         CustomView myView = (CustomView) findViewById(R.id.custom_view);
 
         /**（*）采用View动画来移动，在res目录新建anim文件夹并创建trans.xml：
