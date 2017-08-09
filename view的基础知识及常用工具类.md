@@ -9,7 +9,7 @@ ViewGroup **extends** View
 ```
 ***
 ###view相关的参数
-![获取坐标的方法](./20160221170553904.png)
+![获取坐标的方法](https://github.com/h417840395/ViewSetion/blob/master/pic4md/20160221170553904.png)
 
 
 > view的方法
