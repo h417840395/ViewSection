@@ -58,6 +58,9 @@ setLayoutParams(layoutParams);
 ### 动画
 > [Todo]()
 ### scollTo与scollBy
+> scrollBy实际也是调用scrollTo
+> view内部mScrollX值等于View左边缘与其**内容**左边缘之间的距离，通过getScrollX获取；mScrollY值等于View上边缘与其**内容**上边缘之间的距离，通过getScrollY获取；
+
 > scollTo(x,y)表示移动到一个具体的坐标点，而scollBy(dx,dy)则表示移动的增量为dx、dy。其中scollBy最终也是要调用scollTo的。scollTo、scollBy移动的是View的内容，如果在ViewGroup中使用则是移动他所有的子View。我们将ACTION_MOVE中的代码替换成如下代码：
 ```
 ((View)getParent()).scrollBy(-offsetX,-offsetY);
