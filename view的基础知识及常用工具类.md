@@ -1,14 +1,14 @@
-##view的基础知识及常用工具类
+## view的基础知识及常用工具类
 [TOC]
 ***
-###什么是view
+### 什么是view
 ViewGroup **extends** View
 ```
 //深序遍历
  findViewById()
 ```
 ***
-###view相关的参数
+### view相关的参数
 ![获取坐标的方法](https://github.com/h417840395/ViewSetion/blob/master/pic4md/20160221170553904.png)
 
 
@@ -38,7 +38,7 @@ Y=top+tanslationY;
 //x和y是view左上角坐标，translationX，translationY是View左上角相对父容器的偏移量
 ```
 ***
-###MotionEvent
+### MotionEvent
 > MotionEvent常见动作
 ```
 
@@ -107,14 +107,14 @@ public static final int ACTION_DOWN             = 0;
     }
 ```
 ***
-###TouchSlop
+### TouchSlop
 > TouchSlop 是系统所能识别出的滑动最小距离，当两次滑动键的距离小于此常量不视为滑动。此常量与设备有关；
 ```
                 ViewConfiguration.get(Context).getScaledTouchSlop()
 ```
 ***
 
-###VelocityTracker
+### VelocityTracker
 > VelocityTracker  在onTouchEvent()中获取速度
 ```
                VelocityTracker tracker= VelocityTracker.obtain();//获取VelocityTracker
@@ -128,7 +128,7 @@ public static final int ACTION_DOWN             = 0;
 ```
 ***
 
-###GestureDetector
+### GestureDetector
 >GestureDetector 手势检测，用于辅助检测单击，双击，滑动，长按等。
 >详见**《Android开发艺术探索》p127**
 ```
@@ -141,7 +141,7 @@ public static final int ACTION_DOWN             = 0;
               //detector.onTouchEvent(event)返回值为布尔型
 ```
 ***
-###Scroller 
+### Scroller
 >Scroller 用于实现弹性滑动，其本身不能实现弹性滑动，需要配合view的computeScroll()实现
 ```
 //获取scroller
@@ -184,7 +184,7 @@ public static final int ACTION_DOWN             = 0;
 >  更多关于Scroller详见：[从源码解析Scroller](http://liuwangshu.cn/application/view/4-scroller-sourcecode.html)
 
 ***
-###ViewDragHelper
+### ViewDragHelper
 >定义ViewDragHelper，通常定义在ViewGroup内部
 ```
 //传入的第一个参数为viewGroup，第二个参数为下面的回调函数
