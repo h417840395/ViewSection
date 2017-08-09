@@ -67,6 +67,10 @@ setLayoutParams(layoutParams);
 > [Scroller](https://github.com/h417840395/ViewSection/blob/master/view%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
 ### ViewDragHelper
 > [ViewDragHelper](https://github.com/h417840395/ViewSection/blob/master/view%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
+### 各种滑动方式的对比
+> - scrollTo/scrollBy：操作简单，适合对View**内容**的滑动
+> - 动画：如果使用补间动画只能实现无交互的动画效果；如果使用属性动画可以实现交互，但仅支持（Android 3.0+）
+> - 改变布局参数：操作复杂，使用有交互的View
 
 
 
