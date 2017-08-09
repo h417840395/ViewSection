@@ -135,7 +135,7 @@ public class CustomView extends View implements GestureDetector.OnGestureListene
             layoutParams.topMargin = getTop() + offSetY;
             setLayoutParams(layoutParams);
 
-//                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
             layoutParams.leftMargin = getLeft() + offSetX;
             layoutParams.topMargin = getTop() + offSetY;
             setLayoutParams(layoutParams);
