@@ -64,7 +64,7 @@ setLayoutParams(layoutParams);
 > scollTo(x,y)表示移动到一个具体的坐标点，而scollBy(dx,dy)则表示移动的增量为dx、dy。其中scollBy最终也是要调用scollTo的。scollTo、scollBy移动的是View的内容，如果在ViewGroup中使用则是移动他所有的子View。我们将ACTION_MOVE中的代码替换成如下代码：
 ```
 ((View)getParent()).scrollBy(-offsetX,-offsetY);
-//这里要实现CustomView随着我们手指移动的效果的话，我们就需要将偏移量设置为负值。
+//这里要实现CustomView随着我们手指移动的效果的话，我们就需要将偏移量设置为负值。因为移动的是内容（content）！！！
 ```
 ### Scroller
 > [Scroller](https://github.com/h417840395/ViewSection/blob/master/view%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB.md)
