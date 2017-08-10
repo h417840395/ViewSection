@@ -21,7 +21,7 @@ import android.widget.Scroller;
  * scollTo与scollBy和Scroller；
  */
 
-public class CustomView extends View implements GestureDetector.OnGestureListener {
+public class CustomView extends ViewGroup implements GestureDetector.OnGestureListener {
 
     private int LastX;
     private int LastY;
@@ -71,6 +71,12 @@ public class CustomView extends View implements GestureDetector.OnGestureListene
 
     }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+
+    }
+
+
 //    @Override
 //    public boolean onInterceptTouchEvent(MotionEvent ev) {
 ////        return super.onInterceptTouchEvent(ev);
@@ -82,6 +88,25 @@ public class CustomView extends View implements GestureDetector.OnGestureListene
 //
 //    }
 
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                getParent().requestDisallowInterceptTouchEvent(true);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (父视图需要此事件) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+        }
+
+        return super.dispatchTouchEvent(ev);
+    }
 
     /**
      * 每次手指触发动作都会调用此方法，每次都获取手指作在位置。
@@ -108,8 +133,8 @@ public class CustomView extends View implements GestureDetector.OnGestureListene
 
 //                return detector.onTouchEvent(event);
 
-            /**（1）view进行绘制的时候会调用onLayout()方法来设置显示的位置，
-             * 因此我们同样也可以通过修改View的left、top、right、bottom这四种属性来控制View的坐标。*/
+                /**（1）view进行绘制的时候会调用onLayout()方法来设置显示的位置，
+                 * 因此我们同样也可以通过修改View的left、top、right、bottom这四种属性来控制View的坐标。*/
 
 //               VelocityTracker tracker= VelocityTracker.obtain();
 //                tracker.addMovement(event);
@@ -119,33 +144,34 @@ public class CustomView extends View implements GestureDetector.OnGestureListene
 //                tracker.recycle();
 
 
-            layout(getLeft() + offSetX, getTop() + offSetY, getRight() + offSetX, getBottom() + offSetY);
+                layout(getLeft() + offSetX, getTop() + offSetY, getRight() + offSetX, getBottom() + offSetY);
 
-            /**（2）对left和right进行偏移、对top和bottom进行偏移*/
-            offsetLeftAndRight(offSetX);
-            offsetTopAndBottom(offSetY);
+                /**（2）对left和right进行偏移、对top和bottom进行偏移*/
+                offsetLeftAndRight(offSetX);
+                offsetTopAndBottom(offSetY);
 
-            /**（3）
-             * LayoutParams主要保存了一个View的布局参数，因此我们可以通过LayoutParams来改变View的布局的参数从而达到了改变View的位置的效果
-             * 因为父控件是LinearLayout，所以我们用了LinearLayout.LayoutParams，
-             * 如果父控件是RelativeLayout则要使用RelativeLayout.LayoutParams。
-             * 除了使用布局的LayoutParams外，我们还可以用ViewGroup.MarginLayoutParams来实现：*/
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-            layoutParams.leftMargin = getLeft() + offSetX;
-            layoutParams.topMargin = getTop() + offSetY;
+                /**（3）
+                 * LayoutParams主要保存了一个View的布局参数，因此我们可以通过LayoutParams来改变View的布局的参数从而达到了改变View的位置的效果
+                 * 因为父控件是LinearLayout，所以我们用了LinearLayout.LayoutParams，
+                 * 如果父控件是RelativeLayout则要使用RelativeLayout.LayoutParams。
+                 * 除了使用布局的LayoutParams外，我们还可以用ViewGroup.MarginLayoutParams来实现：*/
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
+                layoutParams.leftMargin = getLeft() + offSetX;
+                layoutParams.topMargin = getTop() + offSetY;
 
-            setLayoutParams(layoutParams);ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            layoutParams.leftMargin = getLeft() + offSetX;
-            layoutParams.topMargin = getTop() + offSetY;
-            setLayoutParams(layoutParams);
+                setLayoutParams(layoutParams);
+                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
+                layoutParams.leftMargin = getLeft() + offSetX;
+                layoutParams.topMargin = getTop() + offSetY;
+                setLayoutParams(layoutParams);
 
-            /**(4)scollBy最终要调用scollTo。
-             * scollTo、scollBy移动的是View的内容，
-             * 如果在ViewGroup中使用则是移动他所有的子View。*/
+                /**(4)scollBy最终要调用scollTo。
+                 * scollTo、scollBy移动的是View的内容，
+                 * 如果在ViewGroup中使用则是移动他所有的子View。*/
 //                这里要实现CustomView随着我们手指移动的效果的话，我们就需要将偏移量设置为负值。
-            ((View) getParent()).scrollBy(-offSetX, -offSetY);
+                ((View) getParent()).scrollBy(-offSetX, -offSetY);
 
-            break;
+                break;
         }
 
         return true;

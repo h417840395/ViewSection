@@ -3,6 +3,8 @@ package com.example.blade.aboutviews;
 import android.animation.ObjectAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,5 +25,15 @@ public class MainActivity extends AppCompatActivity {
 //        ObjectAnimator.ofFloat(myView,"translationX",0,300).setDuration(1000).start();
 
 //        myView.smoothScrollTo(-400,0);
+
+        ((ViewGroup)getWindow().getDecorView().findViewById(android.R.id.content)).getChildAt(0);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+    
+
 }
