@@ -128,7 +128,8 @@ public Window getWindow() {
  }
 ```
 > 由此可见Activity的构成, 详情可见:[从源码解析Activity的构成](http://liuwangshu.cn/application/view/6-activity-constitute.html)
-![Activity的构成]()
+
+![Activity的构成](https://github.com/h417840395/ViewSection/blob/master/pic4md/20160314165803366.png)
 > 这也就说明为何隐藏toolbar操作要在setContentView()之前。
 
 
