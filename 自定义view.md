@@ -50,8 +50,11 @@ public CustomView(Context context, AttributeSet attrs) {
 #### 重写veiw实现全新控件
 > 继承view关键在于onDraw（）
 > 继承viewGroup关键在于onMeasure(),onLayout(),onTouchEvent()等，在于对子布局的测量布局和对事件的控制
+
 > onMeasure()时用getChildCount() == 0判断是否有子布局
+
 > onLayout()时用child.getVisibility() != View.GONE判断子布局的显示状态
+
 > 详见:[自定义ViewGroup](http://liuwangshu.cn/application/view/11-custom-viewgroup.html)
 
 
