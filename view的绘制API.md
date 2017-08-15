@@ -2,7 +2,7 @@
 [TOC]
 ---
 ### Canvas相关
-> - **canvas.translate(float dx, float dy)** //坐标系原点移动至（x,y）
+> - ***canvas.translate(float dx, float dy)*** //坐标系原点移动至（x,y）
 > - canvas.scale (float sx, float sy)//按照坐标系原点缩放
 > - canvas.scale (float sx, float sy, float px, float py) //缩放 px py为缩放中心
 > - **canvas.rotate (float degrees)**//顺时针为+，degrees单位是度
@@ -105,7 +105,6 @@ addArc(float left, float top, float right, float bottom, float startAngle, float
 [安卓自定义View进阶-Matrix原理](http://www.gcssloop.com/customview/Matrix_Basic)
 [安卓自定义View进阶-Matrix详解](http://www.gcssloop.com/customview/Matrix_Method)
 [安卓自定义View进阶-Matrix Camera](http://www.gcssloop.com/customview/matrix-3d-camera)
-
 
 
 
