@@ -5,12 +5,12 @@
 > - ***canvas.translate(float dx, float dy)*** //坐标系原点移动至（x,y）
 > - canvas.scale (float sx, float sy)//按照坐标系原点缩放
 > - canvas.scale (float sx, float sy, float px, float py) //缩放 px py为缩放中心
-> - **canvas.rotate (float degrees)**//顺时针为+，degrees单位是度
+> - ***canvas.rotate (float degrees)***//顺时针为+，degrees单位是度
 > - canvas.rotate (float degrees, float px, float py) //设置旋转中心并旋转
 > - canvas.skew (float sx, float sy) //sx:将画布在x方向上倾斜相应的角度，sx倾斜角度的tan值
-> - **canvas.save()** // 把当前的画布的状态进行保存，然后放入特定的栈中
+> - ***canvas.save()*** // 把当前的画布的状态进行保存，然后放入特定的栈中
 > - canvas.saveLayerXxx() //新建一个图层，并放入特定的栈中
-> - **canvas.restore()**//把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布,**与save（）成对出现**
+> - ***canvas.restore()***//把栈中最顶层的画布状态取出来，并按照这个状态恢复当前的画布,***与save（）成对出现***
 > - canvas.restoreToCount()	//弹出指定位置及其以上所有的状态，并按照指定位置的状态进行恢复
 > - canvas.getSaveCount() //获取栈中内容的数量(即保存次数)
 > - canvas.clipRect(left, top, right, bottom);  范围裁切
@@ -27,18 +27,18 @@
 > - drawLines(float[] pts, int offset, int count, Paint paint) / drawLines(float[] pts, Paint paint) //批量划线（四个坐标即两个点确定一条直线，float[]中四个坐标为一组）
 > - drawRoundRect(float left, float top, float right, float bottom, float rx, float ry, Paint paint)// 画圆角矩形
 > - drawArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean useCenter, Paint paint) //绘制弧形或扇形 boolean useCenter确定是否连接到圆心
-> - **drawPath(Path path, Paint paint)** //画自定义图形
-> - **drawBitmap(Bitmap bitmap, float left, float top, Paint paint)**// 画 Bitmap
+> - ***drawPath(Path path, Paint paint)*** //画自定义图形
+> - ***drawBitmap(Bitmap bitmap, float left, float top, Paint paint)***// 画 Bitmap
 > - drawText(String text, float x, float y, Paint paint) //绘制文字
 
 ### Paint相关
-> - **Paint.setStyle(Style style)** //设置绘制模式
-> - **Paint.setColor(int color)** //设置颜色
+> - ***Paint.setStyle(Style style)*** //设置绘制模式
+> - ***Paint.setColor(int color)*** //设置颜色
 > - paint.setStrokeCap(Paint.Cap.ROUND)// 画笔形状，决定末端是圆角还是方形
 > - Paint.setStrokeWidth(float width) //设置线条宽度
 > - Paint.setTextSize(float textSize) //设置文字大小
 > - Paint.setStrokeJoin(Paint.Join join)//设置拐角形状；；MITER 尖角、 BEVEL 平角和 ROUND 圆角。默认为 MITER。
-> - **Paint.setAntiAlias(boolean aa)** //设置抗锯齿开关
+> - ***Paint.setAntiAlias(boolean aa)*** //设置抗锯齿开关
 > - Paint.setShader(Shader shader) //设置着色器
     - LinearGradient(float x0, float y0, float x1, float y1, int color0, int color1, Shader.TileMode tile) //线性渐变
     - RadialGradient(float centerX, float centerY, float radius, int centerColor, int edgeColor, TileMode tileMode) //辐射渐变
@@ -70,18 +70,18 @@
 / addRoundRect(RectF rect, float[] radii, Direction dir)
 / addRoundRect(float left, float top, float right, float bottom, float[] radii, Direction dir) //添加圆角矩形
 > - addPath(Path path) //添加另一个 Path
-> - **lineTo(float x, float y)** / rLineTo(float x, float y) //画直线
+> - ***lineTo(float x, float y)*** / rLineTo(float x, float y) //画直线
 > - quadTo(float x1, float y1, float x2, float y2)
 / rQuadTo(float dx1, float dy1, float dx2, float dy2)// 画二次贝塞尔曲线
 > - cubicTo(float x1, float y1, float x2, float y2, float x3, float y3) / rCubicTo(float x1, float y1, float x2, float y2, float x3, float y3) //画三次贝塞尔曲线
 关于贝赛尔曲线：[安卓自定义View进阶-Path之贝塞尔曲线](http://www.gcssloop.com/customview/Path_Bezier)
-> - **moveTo(float x, float y)** / rMoveTo(float x, float y) //移动到目标位置
+> - ***moveTo(float x, float y)*** / rMoveTo(float x, float y) //移动到目标位置
 > - arcTo(RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo) 
 / arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo) 
 / arcTo(RectF oval, float startAngle, float sweepAngle)// 画弧形
 addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle) 
 / addArc(RectF oval, float startAngle, float sweepAngle)
-> - **close()** 封闭当前子图形
+> - ***close()*** 封闭当前子图形
 > - setPathEffect(PathEffect effect)
     - CornerPathEffect //把所有拐角变成圆角
     - DiscretePathEffect //把线条进行随机的偏离
@@ -99,7 +99,7 @@ addArc(float left, float top, float right, float bottom, float startAngle, float
 > Matrix 做常见变换的方式：
 > - 创建 Matrix 对象；Matrix matrix = new Matrix();
 > - 调用 Matrix 的 pre/postTranslate/Rotate/Scale/Skew() 方法来设置几何变换；
-> - 使用 Canvas.setMatrix(matrix) 或 **Canvas.concat(matrix)** 来把几何变换应用到 Canvas。
+> - 使用 Canvas.setMatrix(matrix) 或 ***Canvas.concat(matrix)*** 来把几何变换应用到 Canvas。
 > - Matrix.setPolyToPoly(float[] src, int srcIndex, float[] dst, int dstIndex, int pointCount) 用点对点映射的方式设置变换
 >详见：
 [安卓自定义View进阶-Matrix原理](http://www.gcssloop.com/customview/Matrix_Basic)
